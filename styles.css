@@ -1,5 +1,5 @@
 /* ==========================================================================
-   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (MOBILE + DESKTOP)
+   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (ENHANCED BACKGROUND)
    Colors: Rosa Palo (#E8A5B8), Rose Gold (#D4AF37), Cream (#FCF9F4), Dark Velvet (#260718)
    ========================================================================== */
 
@@ -47,7 +47,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: radial-gradient(circle at top, #3d0c24 0%, #200514 50%, #10020a 100%);
+  background: radial-gradient(circle at top, #4a122e 0%, #200514 50%, #0d0107 100%);
   color: var(--text-dark);
   min-height: 100vh;
   display: flex;
@@ -55,8 +55,8 @@ body {
   align-items: flex-start;
   overflow-x: hidden;
   position: relative;
-  /* Padding on mobile so the animated burgundy background is ALWAYS visible framing the card! */
-  padding: 20px 10px 40px 10px;
+  /* Generous padding on mobile so the animated burgundy background FRAMES the card prominently! */
+  padding: 25px 12px 45px 12px;
 }
 
 /* ANIMATED BACKGROUND CANVAS */
@@ -302,17 +302,17 @@ body {
 }
 
 /* ==========================================================================
-   MAIN INVITATION CARD FRAME (FRAMED VISIBLE BACKGROUND ON MOBILE & LAPTOP)
+   MAIN INVITATION CARD FRAME (VISIBLY FRAMED ON ALL MOBILE SCREENS)
    ========================================================================== */
 .invitation-card {
   position: relative;
   z-index: 10;
-  width: min(480px, 92vw);
+  width: min(440px, 85vw); /* 85vw guarantees 7.5vw margins on left & right of mobile screens! */
   margin: 0 auto 30px auto;
   background-color: var(--cream-bg);
-  border-radius: 24px;
+  border-radius: 26px;
   border: 2px solid var(--gold-primary);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75), 0 0 35px rgba(212, 175, 55, 0.35);
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
@@ -434,17 +434,17 @@ body {
 }
 
 /* ==========================================================================
-   QUOTE SECTION
+   QUOTE SECTION (CON VESTIMENTA INTEGRADA)
    ========================================================================== */
 .quote-section {
-  padding: 10px 25px 30px 25px;
+  padding: 10px 20px 30px 20px;
   text-align: center;
 }
 
 .quote-card {
   background: rgba(247, 219, 227, 0.45);
-  border-radius: 16px;
-  padding: 25px 20px;
+  border-radius: 18px;
+  padding: 24px 18px;
   border: 1.5px solid rgba(212, 175, 55, 0.4);
   position: relative;
 }
@@ -462,6 +462,41 @@ body {
   line-height: 1.6;
   color: var(--text-dark);
   margin: 10px 0;
+}
+
+/* DRESS CODE EMBEDDED STYLES */
+.dress-code-embedded {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1.5px dashed rgba(212, 175, 55, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dress-tag-badge {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--deep-velvet);
+  background: var(--soft-pink);
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--primary-pink);
+}
+
+.dress-note-embedded {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.dress-note-embedded span {
+  color: var(--dark-pink);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -766,110 +801,6 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-muted);
-}
-
-/* ==========================================================================
-   DRESS CODE SECTION
-   ========================================================================== */
-.dress-code-section {
-  padding: 10px 20px 30px 20px;
-}
-
-.dress-code-card {
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 25px 20px;
-  text-align: center;
-  border: 1.5px solid var(--glass-border);
-  box-shadow: var(--shadow-soft);
-}
-
-.dress-icons {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-}
-
-.gender-icon-circle {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: var(--soft-pink);
-  border: 2px solid var(--primary-pink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--dark-pink);
-  box-shadow: 0 4px 14px rgba(155, 55, 84, 0.18);
-  transition: transform 0.3s;
-}
-
-.gender-icon-circle:hover {
-  transform: scale(1.05);
-}
-
-.gender-svg {
-  fill: var(--dark-pink);
-  width: 32px;
-  height: 32px;
-}
-
-.gender-label {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--deep-velvet);
-}
-
-.gender-sub {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.dress-code-badge {
-  display: inline-block;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--deep-velvet);
-  background: var(--soft-pink);
-  padding: 8px 22px;
-  border-radius: 20px;
-  border: 1.5px solid var(--primary-pink);
-  margin-bottom: 15px;
-}
-
-.dress-note {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--text-dark);
-  background: rgba(255, 243, 205, 0.7);
-  border-radius: 12px;
-  padding: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.dress-note i {
-  color: var(--gold-dark);
-  margin-right: 5px;
-}
-
-.dress-note span {
-  color: var(--dark-pink);
-  font-weight: 700;
 }
 
 /* ==========================================================================

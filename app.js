@@ -1,15 +1,14 @@
 /* ==========================================================================
-   XV AÑOS FÁTIMA - JAVASCRIPT CONTROLLER (FULLY RESPONSIVE & AUDIO OPTIMIZED)
-   - Background Particle Canvas (Sparkles & Floating Petals)
-   - Virtual Envelope Unseal Animation
-   - Hidden Video Audio Playback & Floating Music Toggle Button
-   - Real-time Countdown Timer (Target: Nov 21, 2026 18:00 hrs -> 53 Días)
+   XV AÑOS FÁTIMA - JAVASCRIPT CONTROLLER (HIGH INTENSITY PARTICLES & DRESS CODE)
+   - High Density Animated Background Canvas (Glowing Sparkles & Falling Rose Petals)
+   - Virtual Envelope Unseal & Audio Playback
+   - Real-time Countdown Timer (Target: Nov 21, 2026 18:00 hrs)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. BACKGROUND CANVAS ANIMATION (Sparkles, Bokeh & Floating Rose Petals)
+     1. HIGH DENSITY BACKGROUND CANVAS ANIMATION
      ========================================================================== */
   const canvas = document.getElementById('particles-canvas');
   const ctx = canvas.getContext('2d');
@@ -30,34 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
     reset() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.size = Math.random() * 3 + 1;
-      this.speedX = (Math.random() - 0.5) * 0.4;
-      this.speedY = -Math.random() * 0.6 - 0.2; // Float upwards gently
+      this.size = Math.random() * 3.5 + 1.2;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = -Math.random() * 0.8 - 0.3; // Gentle upward breeze
       this.opacity = Math.random() * 0.7 + 0.3;
-      this.fadeSpeed = Math.random() * 0.005 + 0.002;
-      this.isPetal = Math.random() > 0.6;
+      this.isPetal = Math.random() > 0.55; // 45% Rose Petals, 55% Glowing Sparkles
       this.petalAngle = Math.random() * Math.PI * 2;
-      this.petalSpeed = Math.random() * 0.02 + 0.01;
+      this.petalSpeed = Math.random() * 0.025 + 0.01;
       
-      // Color palette: Rose Gold, Soft Pink, Golden Sparkle
-      const colors = ['#e8a5b8', '#d4af37', '#f5e49b', '#f7dbe3', '#b76e79'];
+      // Rich Romantic Color Palette: Gold, Rose Gold, Dusty Pink, Champagne
+      const colors = ['#f7e6a1', '#d4af37', '#e8a5b8', '#ffc6d9', '#ffffff', '#f5e49b'];
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
 
     update() {
-      this.x += this.speedX + Math.sin(this.petalAngle) * 0.3;
+      this.x += this.speedX + Math.sin(this.petalAngle) * 0.4;
       this.y += this.speedY;
       this.petalAngle += this.petalSpeed;
 
-      // Pulse opacity
-      this.opacity += (Math.random() - 0.5) * 0.02;
-      if (this.opacity < 0.2) this.opacity = 0.2;
-      if (this.opacity > 0.9) this.opacity = 0.9;
+      // Dynamic Twinkle
+      this.opacity += (Math.random() - 0.5) * 0.03;
+      if (this.opacity < 0.25) this.opacity = 0.25;
+      if (this.opacity > 0.95) this.opacity = 0.95;
 
-      // Wrap around screen
-      if (this.y < -10) this.y = height + 10;
-      if (this.x < -10) this.x = width + 10;
-      if (this.x > width + 10) this.x = -10;
+      // Wrap around screen edges
+      if (this.y < -15) this.y = height + 15;
+      if (this.x < -15) this.x = width + 15;
+      if (this.x > width + 15) this.x = -15;
     }
 
     draw() {
@@ -66,18 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillStyle = this.color;
 
       if (this.isPetal) {
-        // Draw soft romantic floating petal shape
+        // Floating Rose Petal Shape
         ctx.translate(this.x, this.y);
         ctx.rotate(this.petalAngle);
         ctx.beginPath();
-        ctx.ellipse(0, 0, this.size * 2, this.size * 3.5, Math.PI / 4, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, this.size * 2.2, this.size * 4, Math.PI / 4, 0, Math.PI * 2);
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = '#e8a5b8';
         ctx.fill();
       } else {
-        // Draw glowing sparkle particle
+        // Glowing Golden Sparkle Particle
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 16;
+        ctx.shadowColor = '#d4af37';
         ctx.fill();
       }
 
@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const particlesCount = Math.min(Math.floor(window.innerWidth / 12), 65);
+  // Increased density for vibrant mobile background!
+  const particlesCount = Math.min(Math.floor(window.innerWidth / 5), 90);
   const particles = Array.from({ length: particlesCount }, () => new Particle());
 
   function animateCanvas() {
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   animateCanvas();
 
   /* ==========================================================================
-     2. VIRTUAL ENVELOPE UNSEAL & HIDDEN VIDEO AUDIO PLAYBACK
+     2. VIRTUAL ENVELOPE UNSEAL & AUDIO PLAYBACK
      ========================================================================== */
   const waxSeal = document.getElementById('wax-seal');
   const envelope = document.getElementById('envelope');
@@ -116,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bgVideo.play().then(() => {
         musicFloatingBtn.classList.add('playing');
       }).catch(err => {
-        console.log("Autoplay deferred until explicit click:", err);
+        console.log("Autoplay deferred until explicit user click:", err);
       });
     }
   }
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     envelope.classList.add('open');
 
-    // Start video audio on envelope open gesture
+    // Start video audio playback on envelope unseal
     playAudioFromVideo();
 
     setTimeout(() => {
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   waxSeal.addEventListener('click', openEnvelope);
   envelope.addEventListener('click', openEnvelope);
 
-  // Floating music toggle button
+  // Floating music button toggle
   if (musicFloatingBtn) {
     musicFloatingBtn.addEventListener('click', () => {
       if (!bgVideo) return;
