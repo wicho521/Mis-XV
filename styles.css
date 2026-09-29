@@ -1,5 +1,5 @@
 /* ==========================================================================
-   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (REORDERED & REFINED)
+   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (STANDALONE NOTE CARD)
    Colors: Rosa Palo (#E8A5B8), Rose Gold (#D4AF37), Cream (#FCF9F4), Dark Velvet (#260718)
    ========================================================================== */
 
@@ -433,7 +433,7 @@ body {
 }
 
 /* ==========================================================================
-   QUOTE SECTION (UBICADA ENTRE FIESTA E ITINERARIO CON NOTA)
+   QUOTE SECTION (POSICIÓN ORIGINAL DE BIENVENIDA)
    ========================================================================== */
 .quote-section {
   padding: 10px 20px 30px 20px;
@@ -461,26 +461,6 @@ body {
   line-height: 1.6;
   color: var(--text-dark);
   margin: 10px 0;
-}
-
-.dress-note-embedded {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1.5px dashed rgba(212, 175, 55, 0.4);
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-dark);
-}
-
-.dress-note-embedded i {
-  color: var(--gold-dark);
-  margin-right: 4px;
-}
-
-.dress-note-embedded span {
-  color: var(--dark-pink);
-  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -708,6 +688,45 @@ body {
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* ==========================================================================
+   STANDALONE NOTE CARD SECTION (NUEVO RECUADRO ENTRE FIESTA E ITINERARIO)
+   ========================================================================== */
+.note-card-section {
+  padding: 5px 20px 25px 20px;
+  text-align: center;
+}
+
+.note-standalone-card {
+  background: rgba(255, 243, 205, 0.8);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.note-icon-gold {
+  color: var(--gold-dark);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.note-standalone-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.45;
+}
+
+.note-standalone-text span {
+  color: var(--dark-pink);
+  font-weight: 700;
 }
 
 /* ==========================================================================
