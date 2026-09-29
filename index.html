@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XV Años | Fátima</title>
+  <meta name="description" content="Te invito a celebrar mis XV Años - Fátima. Sábado 21 de Noviembre de 2026. ¡Acompáñame en este día tan especial!">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Canvas de Fondo Animado "Fresón" (Destellos, bokeh y pétalos flotantes) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- OVERLAY / ENVELOPE SPLASH SCREEN (Sobre Virtual) -->
+  <div id="envelope-screen" class="envelope-screen">
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelope">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter">
+          <div class="letter-corner top-left"></div>
+          <div class="letter-corner top-right"></div>
+          <h3 class="letter-sub">Mis XV Años</h3>
+          <h1 class="letter-title">Fátima</h1>
+          <p class="letter-text">Toca el sello para abrir la invitación</p>
+        </div>
+        <div class="wax-seal" id="wax-seal" title="Haz clic para abrir">
+          <img src="assets/images/wax_seal.jpg" alt="Sello F" class="seal-img">
+          <div class="seal-glow"></div>
+        </div>
+      </div>
+      <div class="open-instruction">
+        <i class="fa-solid fa-hand-pointer pulse-icon"></i>
+        <span>Toca el sello para abrir la invitación</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING MUSIC CONTROL BUTTON -->
+  <button id="music-floating-btn" class="music-floating-btn" aria-label="Control de Música" title="Reproducir/Pausar Música">
+    <i class="fa-solid fa-compact-disc spin-icon" id="music-btn-icon"></i>
+    <span class="music-btn-label">Música</span>
+  </button>
+
+  <!-- HIDDEN VIDEO FOR AUDIO PLAYBACK -->
+  <video id="bg-video" playsinline loop preload="auto" style="display: none;">
+    <source src="assets/video.mp4" type="video/mp4">
+  </video>
+
+  <!-- INVITATION MAIN CONTAINER -->
+  <main class="invitation-card" id="invitation-card">
+
+    <!-- Floral Top Header -->
+    <div class="header-floral">
+      <img src="assets/images/rose_floral_header.jpg" alt="Flores Rosa Palo" class="floral-img">
+    </div>
+
+    <!-- Crown & Quinceañera Hero -->
+    <header class="hero-section">
+      <div class="crown-container">
+        <img src="assets/images/golden_crown.jpg" alt="Corona Tiara XV Años" class="crown-img">
+      </div>
+      
+      <div class="hero-dress-container">
+        <img src="assets/images/quinceanera_pink_gown.jpg" alt="Fátima XV Años" class="gown-img">
+      </div>
+
+      <div class="hero-title-container">
+        <span class="subtitle-tag">MIS XV AÑOS</span>
+        <h1 class="quinceanera-name">Fátima</h1>
+        <div class="ornament-divider">
+          <span class="line"></span>
+          <i class="fa-solid fa-gem star-icon"></i>
+          <span class="line"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- DEDICATION QUOTE SECTION -->
+    <section class="quote-section">
+      <div class="quote-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p class="quote-text">
+          Hay momentos en la vida que se vuelven inolvidables, y hoy quiero compartir contigo uno de los más especiales.
+        </p>
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+      </div>
+    </section>
+
+    <!-- EVENT DATE HIGHLIGHT -->
+    <section class="date-highlight-section">
+      <div class="date-badge-wrapper">
+        <span class="day-name">SÁBADO</span>
+        <div class="big-date">
+          <span class="number">21</span>
+        </div>
+        <span class="month-name">NOVIEMBRE</span>
+        <span class="year-name">2026</span>
+      </div>
+    </section>
+
+    <!-- PADRES Y MADRINA -->
+    <section class="family-section">
+      <div class="section-title">
+        <h2>Con la bendición de</h2>
+        <div class="ornamental-line"></div>
+      </div>
+
+      <div class="family-cards-grid">
+        <div class="family-card">
+          <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Mis Padres</h3>
+          <p class="name">Alejandro Martínez González</p>
+          <span class="and-symbol">&</span>
+          <p class="name">Maribel Esquivel Corona</p>
+        </div>
+
+        <div class="family-card">
+          <div class="card-icon"><i class="fa-solid fa-crown"></i></div>
+          <h3>Mi Madrina</h3>
+          <p class="name">Magda Karina Esquivel Corona</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS / CEREMONY & RECEPTION -->
+    <section class="events-section">
+      <div class="section-title">
+        <h2>Dónde & Cuándo</h2>
+        <div class="ornamental-line"></div>
+      </div>
+
+      <!-- MISA / CEREMONIA (6:00 PM) -->
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-icon-circle">
+            <i class="fa-solid fa-church"></i>
+          </div>
+          <h3>Ceremonia Religiosa</h3>
+        </div>
+        <div class="event-details">
+          <p class="time"><i class="fa-regular fa-clock"></i> 06:00 PM</p>
+          <h4 class="place-name">Misa de Acción de Gracias</h4>
+          <p class="address">Haz clic abajo para abrir la ubicación en el mapa</p>
+          <a href="https://maps.app.goo.gl/r6A3kuAomQqh7inz5" target="_blank" rel="noopener" class="btn-location">
+            <i class="fa-solid fa-location-dot"></i> VER UBICACIÓN
+          </a>
+        </div>
+      </div>
+
+      <!-- RECEPCION / FIESTA (7:00 PM) -->
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-icon-circle">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <h3>Recepción & Fiesta</h3>
+        </div>
+        <div class="event-details">
+          <p class="time"><i class="fa-regular fa-clock"></i> 07:00 PM</p>
+          <h4 class="place-name">Salón de Eventos</h4>
+          <p class="address">Haz clic abajo para abrir la ubicación en el mapa</p>
+          <a href="https://maps.app.goo.gl/nookNN6Sjt1JF8gy8" target="_blank" rel="noopener" class="btn-location">
+            <i class="fa-solid fa-location-dot"></i> VER UBICACIÓN
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARIO DEL EVENTO -->
+    <section class="itinerary-section">
+      <div class="section-title">
+        <h2>Itinerario</h2>
+        <div class="ornamental-line"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">06:00 PM</div>
+          <div class="timeline-dot"><i class="fa-solid fa-church"></i></div>
+          <div class="timeline-content">
+            <h4>Ceremonia Religiosa</h4>
+            <p>Misa de Acción de Gracias</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">07:00 PM</div>
+          <div class="timeline-dot"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <div class="timeline-content">
+            <h4>Recepción</h4>
+            <p>Cóctel de bienvenida y entrada estelar</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">07:30 PM</div>
+          <div class="timeline-dot"><i class="fa-solid fa-utensils"></i></div>
+          <div class="timeline-content">
+            <h4>Banquete Principal</h4>
+            <p>Cena en honor a la quinceañera</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">10:00 PM</div>
+          <div class="timeline-dot"><i class="fa-solid fa-crown"></i></div>
+          <div class="timeline-content">
+            <h4>Vals Principal & Brindis</h4>
+            <p>Momento inolvidable con la familia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓDIGO DE VESTIMENTA -->
+    <section class="dress-code-section">
+      <div class="section-title">
+        <h2>Código de Vestimenta</h2>
+        <div class="ornamental-line"></div>
+      </div>
+
+      <div class="dress-code-card">
+        <div class="dress-icons">
+          <!-- MUJERES ICON -->
+          <div class="icon-box">
+            <div class="gender-icon-circle">
+              <svg class="gender-svg" viewBox="0 0 64 64" fill="currentColor" width="32" height="32">
+                <circle cx="32" cy="12" r="7"/>
+                <path d="M23 23 C26 21 38 21 41 23 L45 33 C47 37 54 53 56 60 L8 60 C10 53 17 37 19 33 Z"/>
+              </svg>
+            </div>
+            <span class="gender-label">Mujeres</span>
+            <span class="gender-sub">Vestido Largo / Formal</span>
+          </div>
+
+          <!-- HOMBRES ICON -->
+          <div class="icon-box">
+            <div class="gender-icon-circle">
+              <svg class="gender-svg" viewBox="0 0 64 64" fill="currentColor" width="32" height="32">
+                <circle cx="32" cy="12" r="7"/>
+                <path d="M16 23 C16 21 21 20 28 20 L32 27 L36 20 C43 20 48 21 48 23 L46 42 L38 42 L38 60 L26 60 L26 42 L18 42 Z"/>
+                <path d="M32 20 L29 25 L32 33 L35 25 Z" fill="#d4af37"/>
+              </svg>
+            </div>
+            <span class="gender-label">Hombres</span>
+            <span class="gender-sub">Traje Formal</span>
+          </div>
+        </div>
+
+        <div class="dress-code-badge">FORMAL / ELEGANTE</div>
+
+        <p class="dress-note">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <strong>Nota especial:</strong> El color <span>Rosa Palo</span> está reservado exclusivamente para la Quinceañera.
+        </p>
+      </div>
+    </section>
+
+    <!-- MESA DE REGALOS (SIN EL BOTÓN INACTIVO DE LLUVIA DE SOBRES) -->
+    <section class="gifts-section">
+      <div class="section-title">
+        <h2>Mesa de Regalos</h2>
+        <div class="ornamental-line"></div>
+      </div>
+
+      <div class="gift-card">
+        <div class="gift-icon-box">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <h3>Tu compañía es nuestro mejor regalo</h3>
+        <p class="gift-desc">
+          Si deseas tener un detalle con Fátima, agradecemos de corazón tu muestra de cariño a través de sobre en efectivo el día del evento.
+        </p>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN TIMER / CRONÓMETRO -->
+    <section class="countdown-section">
+      <div class="section-title">
+        <h2>Cuenta Regresiva</h2>
+        <p class="countdown-sub">Falta muy poco para el gran día</p>
+      </div>
+
+      <div class="countdown-timer" id="countdown-timer">
+        <div class="time-block">
+          <span class="number" id="days">00</span>
+          <span class="label">DÍAS</span>
+        </div>
+        <div class="time-colon">:</div>
+        <div class="time-block">
+          <span class="number" id="hours">00</span>
+          <span class="label">HORAS</span>
+        </div>
+        <div class="time-colon">:</div>
+        <div class="time-block">
+          <span class="number" id="minutes">00</span>
+          <span class="label">MINUTOS</span>
+        </div>
+        <div class="time-colon">:</div>
+        <div class="time-block">
+          <span class="number" id="seconds">00</span>
+          <span class="label">SEGUNDOS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="invitation-footer">
+      <div class="crown-footer">
+        <i class="fa-solid fa-crown"></i>
+      </div>
+      <p class="footer-title">FÁTIMA</p>
+      <p class="footer-subtitle">MIS XV AÑOS • 2026</p>
+      <p class="footer-credits">¡Te esperamos para celebrar juntos este día tan especial!</p>
+    </footer>
+
+  </main>
+
+  <!-- Script File -->
+  <script src="app.js"></script>
+</body>
+</html>
