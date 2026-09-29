@@ -1,7 +1,6 @@
 /* ==========================================================================
-   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (ALL DEVICES)
+   XV AÑOS FÁTIMA - FULLY RESPONSIVE DESIGN SYSTEM (MOBILE + DESKTOP)
    Colors: Rosa Palo (#E8A5B8), Rose Gold (#D4AF37), Cream (#FCF9F4), Dark Velvet (#260718)
-   Supported Devices: Mobiles (320px+), Tablets, Laptops, Desktops, 4K Displays
    ========================================================================== */
 
 :root {
@@ -56,7 +55,8 @@ body {
   align-items: flex-start;
   overflow-x: hidden;
   position: relative;
-  padding: 0;
+  /* Padding on mobile so the animated burgundy background is ALWAYS visible framing the card! */
+  padding: 20px 10px 40px 10px;
 }
 
 /* ANIMATED BACKGROUND CANVAS */
@@ -302,19 +302,18 @@ body {
 }
 
 /* ==========================================================================
-   MAIN INVITATION CARD FRAME (FULL ADAPTIVE RESPONSIVENESS)
+   MAIN INVITATION CARD FRAME (FRAMED VISIBLE BACKGROUND ON MOBILE & LAPTOP)
    ========================================================================== */
 .invitation-card {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
+  width: min(480px, 92vw);
+  margin: 0 auto 30px auto;
   background-color: var(--cream-bg);
+  border-radius: 24px;
+  border: 2px solid var(--gold-primary);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(212, 175, 55, 0.25);
   overflow: hidden;
-  border-left: 1px solid var(--glass-border);
-  border-right: 1px solid var(--glass-border);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
@@ -349,21 +348,19 @@ body {
   position: relative;
 }
 
-/* CORONA TIARA - LARGER & CLEANED */
+/* CORONA TIARA VECTOR SVG (100% TRANSPARENT - NO WHITE BOX) */
 .crown-container {
-  width: clamp(110px, 25vw, 150px);
-  height: clamp(80px, 18vw, 110px);
-  margin: -25px auto 5px auto;
+  width: clamp(120px, 28vw, 150px);
+  height: clamp(70px, 18vw, 90px);
+  margin: -32px auto 5px auto;
   position: relative;
   z-index: 15;
-  filter: drop-shadow(0 6px 12px rgba(212, 175, 55, 0.5));
 }
 
-.crown-img {
+.crown-svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  display: block;
   animation: floatSlow 4s ease-in-out infinite;
 }
 
@@ -1026,18 +1023,15 @@ body {
    DEVICE-SPECIFIC MEDIA QUERIES (DESKTOPS, LAPTOPS, TABLETS, PHONES)
    ========================================================================== */
 
-/* TABLETS & SMALL LAPTOPS (min-width: 600px) */
 @media (min-width: 600px) {
   body {
     padding: 40px 15px;
   }
   .invitation-card {
     border-radius: 28px;
-    border: 1.5px solid var(--gold-primary);
   }
 }
 
-/* LARGE LAPTOPS & DESKTOPS (min-width: 1024px) */
 @media (min-width: 1024px) {
   body {
     padding: 50px 0;
